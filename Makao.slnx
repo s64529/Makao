@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="Makao.vcxproj" Id="53ffdcb5-091b-456d-86bd-df676af3939e" />
+</Solution>
