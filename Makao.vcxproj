@@ -140,11 +140,13 @@ sfml-system.lib</AdditionalDependencies>
     <ClCompile Include="Gracz.cpp" />
     <ClCompile Include="Karta.cpp" />
     <ClCompile Include="Makao.cpp" />
+    <ClCompile Include="Statystyki.cpp" />
     <ClCompile Include="Talia.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Gracz.h" />
     <ClInclude Include="Karta.h" />
+    <ClInclude Include="Statystyki.h" />
     <ClInclude Include="Talia.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
