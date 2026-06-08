@@ -10,6 +10,7 @@
 #include "Statystyki.h"
 
 using namespace std;
+using namespace sf;
 
 int main()
 {
@@ -29,10 +30,10 @@ int main()
 
     Karta* kartaNaStole = taliaGry.dajKarte();
 
-    sf::RenderWindow window(sf::VideoMode({1280, 720}), "Makao");
+    RenderWindow window(VideoMode({1280, 720}), "Makao");
 
-    sf::Texture teksturaTyl;
-    sf::Font czcionka;
+    Texture teksturaTyl;
+    Font czcionka;
 
     try {
         if (!teksturaTyl.loadFromFile("Karty/Tyl.png")) {
@@ -46,27 +47,27 @@ int main()
         return -1;
     }
 
-    sf::Sprite spriteTyl(teksturaTyl);
+    Sprite spriteTyl(teksturaTyl);
     spriteTyl.setScale({0.2f, 0.2f});
 
-    sf::Sprite spriteTalia(teksturaTyl);
+    Sprite spriteTalia(teksturaTyl);
     spriteTalia.setScale({0.2f, 0.2f});
     spriteTalia.setPosition({250.0f, 260.0f});
 
-    sf::Text tekstKomunikatu(czcionka);
+    Text tekstKomunikatu(czcionka);
     tekstKomunikatu.setCharacterSize(24);
-    tekstKomunikatu.setFillColor(sf::Color::White);
+    tekstKomunikatu.setFillColor(Color::White);
     tekstKomunikatu.setPosition({20.0f, 5.0f});
 
-    sf::Text tekstImieGracza(czcionka);
+    sText tekstImieGracza(czcionka);
     tekstImieGracza.setCharacterSize(20);
-    tekstImieGracza.setFillColor(sf::Color::White);
+    tekstImieGracza.setFillColor(Color::White);
     tekstImieGracza.setString("Gracz: " + uczestnicy[0]->pobierzNazwe());
     tekstImieGracza.setPosition({20.0f, 680.0f});
 
-    sf::Text tekstStatystyki(czcionka);
+    Text tekstStatystyki(czcionka);
     tekstStatystyki.setCharacterSize(20);
-    tekstStatystyki.setFillColor(sf::Color::Yellow);
+    tekstStatystyki.setFillColor(Color::Yellow);
     tekstStatystyki.setString(Statystyki::pobierzStatystyki());
     tekstStatystyki.setPosition({1000.0f, 5.0f});
 
@@ -90,11 +91,11 @@ int main()
 
             if (graTrwa && aktualnaTura == 0)
             {
-                if (const auto* mouseBtn = event->getIf<sf::Event::MouseButtonPressed>())
+                if (const auto* mouseBtn = event->getIf<Event::MouseButtonPressed>())
                 {
-                    if (mouseBtn->button == sf::Mouse::Button::Left)
+                    if (mouseBtn->button == Mouse::Button::Left)
                     {
-                        sf::Vector2f pozycjaMyszy(static_cast<float>(mouseBtn->position.x), static_cast<float>(mouseBtn->position.y));
+                        Vector2f pozycjaMyszy(static_cast<float>(mouseBtn->position.x), static_cast<float>(mouseBtn->position.y));
                         bool kliknietoTalie = spriteTalia.getGlobalBounds().contains(pozycjaMyszy);
 
                         turaZakonczona = uczestnicy[aktualnaTura]->wykonajTure(kartaNaStole, kartyDoDobrania, aktywnePostoje, taliaGry, aktualnyKomunikat, pozycjaMyszy, kliknietoTalie, true);
@@ -105,7 +106,7 @@ int main()
 
         if (graTrwa && aktualnaTura == 1)
         {
-            window.clear(sf::Color(34, 139, 34));
+            window.clear(Color(34, 139, 34));
             window.draw(spriteTalia);
             kartaNaStole->ustawPozycje(540.0f, 260.0f);
             window.draw(kartaNaStole->pobierzSprite());
