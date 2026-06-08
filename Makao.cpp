@@ -59,7 +59,7 @@ int main()
     tekstKomunikatu.setFillColor(Color::White);
     tekstKomunikatu.setPosition({20.0f, 5.0f});
 
-    sText tekstImieGracza(czcionka);
+    Text tekstImieGracza(czcionka);
     tekstImieGracza.setCharacterSize(20);
     tekstImieGracza.setFillColor(Color::White);
     tekstImieGracza.setString("Gracz: " + uczestnicy[0]->pobierzNazwe());
@@ -82,9 +82,9 @@ int main()
     {
         bool turaZakonczona = false;
 
-        while (const optional<sf::Event> event = window.pollEvent())
+        while (const optional<Event> event = window.pollEvent())
         {
-            if (event->is<sf::Event::Closed>())
+            if (event->is<Event::Closed>())
             {
                 window.close();
             }
@@ -139,7 +139,7 @@ int main()
             window.draw(tekstStatystyki);
             window.display();
 
-            sf::sleep(sf::seconds(1.5f));
+            sleep(seconds(1.5f));
 
             turaZakonczona = uczestnicy[aktualnaTura]->wykonajTure(kartaNaStole, kartyDoDobrania, aktywnePostoje, taliaGry, aktualnyKomunikat, { 0,0 }, false, true);
         }
