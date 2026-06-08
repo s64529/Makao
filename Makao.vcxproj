@@ -137,6 +137,7 @@ sfml-system.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Gra.cpp" />
     <ClCompile Include="Gracz.cpp" />
     <ClCompile Include="Karta.cpp" />
     <ClCompile Include="Makao.cpp" />
@@ -144,6 +145,7 @@ sfml-system.lib</AdditionalDependencies>
     <ClCompile Include="Talia.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Gra.h" />
     <ClInclude Include="Gracz.h" />
     <ClInclude Include="Karta.h" />
     <ClInclude Include="Statystyki.h" />
